@@ -1,0 +1,18 @@
+{
+  "name": "@cardinal/internals",
+  "version": "1.0.0",
+  "description": "Decorators, controllers and util functions used by any @cardinal/<component>.",
+  "main": "build/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "^2.3.0"
+  },
+  "scripts": {
+    "build": "stencil build --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webcardinal/cardinal-internals.git"
+  },
+  "license": "MIT"
+}
