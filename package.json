@@ -2,13 +2,15 @@
   "name": "@cardinal/internals",
   "version": "1.0.0",
   "description": "Decorators, controllers and util functions used by any @cardinal/<component>.",
-  "main": "build/index.js",
+  "main": "./build/index.cjs.js",
+  "module": "./build/index.js",
+  "types": "./build/types/index.d.ts",
+  "collection": "./build/collection/collection-manifest.json",
   "dependencies": {},
   "devDependencies": {
     "@stencil/core": "^2.3.0"
   },
   "scripts": {
-    "postinstall": "npm run build",
     "build": "stencil build --prod"
   },
   "repository": {
