@@ -2,10 +2,14 @@
   "name": "@cardinal/internals",
   "version": "1.0.0",
   "description": "Decorators, controllers and util functions used by any @cardinal/<component>.",
-  "main": "./build/index.cjs.js",
-  "module": "./build/index.js",
-  "types": "./build/types/index.d.ts",
-  "collection": "./build/collection/collection-manifest.json",
+  "main": "./build/dist/index.cjs.js",
+  "module": "./build/dist/index.js",
+  "es2015": "./build/dist/esm/index.mjs",
+  "es2017": "./build/dist/esm/index.mjs",
+  "types": "./build/dist/types/index.d.ts",
+  "collection": "./build/dist/collection/collection-manifest.json",
+  "collection:main": "./build/dist/collection/index.js",
+  "unpkg": "./build/dist/webcardinal/webcardinal.js",
   "dependencies": {},
   "devDependencies": {
     "@stencil/core": "^2.3.0"

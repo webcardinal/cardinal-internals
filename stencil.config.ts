@@ -6,7 +6,7 @@ export const config: Config = {
     outputTargets: [
         {
             type: 'dist',
-            dir: 'build',
+            dir: 'build/dist',
         }
     ]
 }
