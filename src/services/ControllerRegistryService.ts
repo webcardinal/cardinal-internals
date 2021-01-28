@@ -23,17 +23,21 @@ const ControllerRegistryService = {
    * @deprecated
    */
   getController: async(controllerName, isBaseController = false) => {
-    // base controllers are not loaded
+    // with this update, old psk-<component>s will partially work with @webcardinal/core
     const WebCardinal = window.WebCardinal;
     if (WebCardinal) {
-      if (WebCardinal.controllers) {
+      if (isBaseController === true && controllerName === 'ContainerController') {
+        controllerName = 'WccController';
+      }
+
+      if (typeof WebCardinal.controllers === 'object') {
         const { controllers } = WebCardinal;
         if (controllers[controllerName]) {
-          return (controllers[controllerName]);
+          return controllers[controllerName];
         }
       }
 
-      if (WebCardinal.basePath) {
+      if (typeof WebCardinal.basePath === 'string') {
         const { basePath } = window.WebCardinal;
         try {
           let controller = await import(`${basePath}/scripts/controllers/${controllerName}.js`);
