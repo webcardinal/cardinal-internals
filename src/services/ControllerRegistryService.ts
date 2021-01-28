@@ -5,6 +5,9 @@ window.cardinal.pendingControllerRequests = window.cardinal.pendingControllerReq
 const { controllers, pendingControllerRequests } = window.cardinal;
 
 const ControllerRegistryService = {
+  /**
+   * @deprecated
+   */
   registerController: (controllerName, controller) => {
     controllers[controllerName] = controller;
 
@@ -16,7 +19,32 @@ const ControllerRegistryService = {
     }
   },
 
+  /**
+   * @deprecated
+   */
   getController: async(controllerName, isBaseController = false) => {
+    // base controllers are not loaded
+    const WebCardinal = window.WebCardinal;
+    if (WebCardinal) {
+      if (WebCardinal.controllers) {
+        const { controllers } = WebCardinal;
+        if (controllers[controllerName]) {
+          return (controllers[controllerName]);
+        }
+      }
+
+      if (WebCardinal.basePath) {
+        const { basePath } = window.WebCardinal;
+        try {
+          let controller = await import(`${basePath}/scripts/controllers/${controllerName}.js`);
+          return controller.default || controller;
+        } catch (error) {
+          console.error(error);
+          return null;
+        }
+      }
+    }
+
     if (controllers[controllerName]) {
       return (controllers[controllerName]);
     }
