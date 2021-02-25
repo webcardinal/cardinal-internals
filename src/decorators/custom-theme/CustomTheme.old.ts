@@ -106,7 +106,7 @@ export default function CustomTheme(): CustomThemeInterface {
     const {componentWillLoad, disconnectedCallback} = proto;
     proto.componentWillLoad = function () {
       const host = getElement(this);
-      if (!host) {
+      if (!host || !host.isConnected) {
         return componentWillLoad && componentWillLoad.call(this);
       }
       else {
