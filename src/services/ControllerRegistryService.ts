@@ -27,7 +27,7 @@ const ControllerRegistryService = {
     const WebCardinal = window.WebCardinal;
     if (WebCardinal) {
       if (isBaseController === true && controllerName === 'ContainerController') {
-        controllerName = 'WccController';
+        controllerName = 'WebcController';
       }
 
       if (typeof WebCardinal.controllers === 'object') {
