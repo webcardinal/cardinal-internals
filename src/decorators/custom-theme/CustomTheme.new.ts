@@ -44,7 +44,16 @@ async function getTheme(host: HTMLElement, asyncCallback: (host: HTMLElement) =>
 }
 
 async function injectTheme(host: HTMLElement) {
-  const { basePath } = window.WebCardinal;
+  let basePath = '';
+  if (window) {
+    if (window.basePath) {
+      basePath = window.basePath;
+    }
+    else if (window.WebCardinal && window.WebCardinal.basePath) {
+      basePath = window.WebCardinal.basePath;
+    }
+  }
+
   const componentName = host.tagName.toLowerCase();
   const componentMode = (host as any).mode || host.getAttribute('mode') || 'default';
 

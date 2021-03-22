@@ -178,6 +178,7 @@ export default function CustomTheme(): CustomThemeInterface {
                       }
 
                       addStyleElement(shadowRootHostComponent).then(() => {
+                        // @ts-ignore
                         resolve();
                       });
                     }else{
